@@ -31,3 +31,8 @@ test('Three numbers, delimited either way, returns the sum', () => {
   33
   33`)).toBe(99);
 });
+test('Negative numbers should throw an exception', () => {
+  expect(()=>calculator('-1')).toThrow('No negative numbers allowed');
+  expect(()=>calculator('50,3,-5')).toThrow('No negative numbers allowed');
+  expect(()=>calculator('3,-4,5')).toThrow('No negative numbers allowed');
+});
