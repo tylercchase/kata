@@ -9,7 +9,9 @@ function calculator(input) {
     let output = 0;
     const numbers = input.split(/,|\n/g);
     for(number of numbers){
-      output += parseInt(number);
+      if(parseInt(number) <= 1000){
+        output += parseInt(number);
+      }
     }
     return output;
   }else{

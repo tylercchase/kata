@@ -36,3 +36,11 @@ test('Negative numbers should throw an exception', () => {
   expect(()=>calculator('50,3,-5')).toThrow('No negative numbers allowed');
   expect(()=>calculator('3,-4,5')).toThrow('No negative numbers allowed');
 });
+test('Numbers greater than 1000 should be ignored', () => {
+  expect(calculator('1,1001')).toBe(1);
+  expect(calculator('1,999')).toBe(1000);
+  expect(calculator('1,1000')).toBe(1001);
+  expect(calculator('1,100')).toBe(101);
+  expect(calculator('10001,100')).toBe(100);
+  expect(calculator('10001,1001')).toBe(0);
+});
