@@ -5,17 +5,15 @@ function calculator(input) {
   if(input.includes('-')){
     throw('No negative numbers allowed');
   }
-  if(input.includes(',') || input.includes('\n')){
+  if(input.match(/,|\n/g)){
     let output = 0;
-    const numbers = input.split(/,|\n/g);
-    for(number of numbers){
+    for(number of input.split(/,|\n/g)){
       if(parseInt(number) <= 1000){
         output += parseInt(number);
       }
     }
     return output;
-  }else{
-    return parseInt(input);
   }
+  return parseInt(input);
 }
 module.exports = calculator;
