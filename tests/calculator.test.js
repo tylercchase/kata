@@ -44,3 +44,11 @@ test('Numbers greater than 1000 should be ignored', () => {
   expect(calculator('10001,100')).toBe(100);
   expect(calculator('10001,1001')).toBe(0);
 });
+test('Single character defined on first line as delimiter', () => {
+  expect(calculator(`//#
+  1#1`)).toBe(2);
+  expect(calculator(`//a
+  1a1,1`)).toBe(3);
+  expect(calculator(`//:
+  10:10`)).toBe(20);
+});
