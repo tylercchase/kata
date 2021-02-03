@@ -5,11 +5,15 @@ function calculator(input) {
   if(input.includes('-')){
     throw('No negative numbers allowed');
   }
-  let userRegex;
+  let regex = new RegExp(',|\n','g');
   if(input.startsWith('//')){
-    userRegex = input[2];
+    if(input[3] == '\n'){
+      regex = new RegExp('\\' + input[2] + '|,|\n','g');
+    }else{
+      regex = new RegExp('\\' + input.substring(input.indexOf('[')+1,input.indexOf(']')) + '|,|\n','g');;
+
+    }
   }
-  let regex = new RegExp(userRegex + '|,|\n','g');
   if(input.match(regex)){
     let output = 0;
     for(number of input.split(regex)){
