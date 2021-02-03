@@ -51,4 +51,10 @@ test('Single character defined on first line as delimiter', () => {
   1a1,1`)).toBe(3);
   expect(calculator(`//:
   10:10`)).toBe(20);
+  expect(calculator(`//&
+  10&10`)).toBe(20);
+});
+test('Multi char delimiter', () => {
+  expect(calculator(`//[###]
+  1###1`)).toBe(2);
 });
